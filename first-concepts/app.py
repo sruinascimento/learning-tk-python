@@ -1,4 +1,5 @@
 from tkinter import *
+import sys
 
 def main():
     menu = Tk()
@@ -9,13 +10,24 @@ def main():
     menu.resizable(True, True) # faz com não possamos ou não maximir a janela
     menu.minsize(width=500, height=250)
     menu.maxsize(width=700, height=400)
-    maximized_screen = "zoomed" #tela maximizada nas alturar e larguras permitidas
-    minimized_screen = "iconic"
-    icon_pencil = "images/Designcontest-Outline-Pencil.ico"
-    menu.iconbitmap(icon_pencil)
+    menu['bg'] = "#4A4A4A"
+    maximized_screen = "zoomed"
     menu.state(maximized_screen)
+    # minimized_screen = "iconic"
+    icon_pencil = sys.path[0]+"\\images\\pencil.ico"
+    print(sys.path[0])
+    menu.iconbitmap(icon_pencil)
+
+
+
+    ##botão
+
+    button = Button(menu, text="Run", command=  lambda:click_Run())
+    button.pack()
     menu.mainloop()
 
+def click_Run():
+    print("Botão clicado")
 
 if __name__ == "__main__":
     main()
