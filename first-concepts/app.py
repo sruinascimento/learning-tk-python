@@ -18,12 +18,20 @@ def main():
     print(sys.path[0])
     menu.iconbitmap(icon_pencil)
 
-
-
     ##botão
-
-    button = Button(menu, text="Run", command=  lambda:click_Run())
+    button = Button(menu, text="Run", command=  lambda:click_Run(), bg="blue", fg="yellow", font="Arial 20 bold", bd=2)
     button.pack()
+
+    ## Label
+    label_first_name = Label(
+        menu, text="First Name", bd=2, relief="solid"
+        ).pack()
+
+    label_last_name = Label(menu, text="Last Name").pack()
+    ## pack que define a ordem dos elementos
+
+
+
     menu.mainloop()
 
 def click_Run():
