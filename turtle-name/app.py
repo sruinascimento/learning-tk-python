@@ -1,6 +1,8 @@
 from tkinter import *
 import sys
 
+from turtle import Turtle, fillcolor, pen, pencolor, position
+
 def main():
     app = Tk()
     app.title("Name Painter")
@@ -24,7 +26,6 @@ def main():
     file_menu.add_command(label="First Name", command= lambda: draw_name("First Name"))
     file_menu.add_command(label="Last Name", command= lambda: draw_name("Last Name"))
     file_menu.add_command(label="Middle Name", command= lambda: draw_name("Middle Name"))
-    file_menu.add_command(label="Full Name", command= lambda: draw_name("Full Name"))
     
     ##passando as opções para o menu
     menu_bar.add_cascade(label="File", menu=file_menu)
@@ -34,7 +35,104 @@ def main():
     app.mainloop()
 
 def draw_name(name):
-    print(name)
+    pencil = Turtle()
+    pencil.pen(fillcolor="black", pensize=10, pencolor="blue")
+    pencil.pensize(10)
+    if name == "First Name":
+        draw_first_name(pencil)
+
+    if name == "Last Name":
+        draw_last_name(pencil)
+
+
+def draw_first_name(pencil:Turtle) -> None:
+    initial_position(pencil)
+    # R
+    pencil.lt(90)
+    pencil.fd(100)
+    pencil.rt(90)
+    pencil.circle(-30, 180)
+    pencil.rt(225)
+    pencil.fd(55.82)
+
+    pencil.penup()
+    pencil.setpos(pencil.position()[0] + 30, pencil.position()[1])
+    # pencil.settiltangle(45)
+    pencil.lt(135)
+    pencil.pendown()
+    #U
+    pencil.fd(90)
+    pencil.fd(-90)
+    pencil.rt(90)
+    pencil.fd(39.47)
+    pencil.lt(90)
+    pencil.fd(90)
+
+    # Pingo do I
+    pencil.penup()
+    pencil.setpos(pencil.position()[0] + 40, pencil.position()[1] + 20)
+    pencil.pendown()
+    pencil.circle(1, 360)
+    #I
+    pencil.penup()
+    pencil.setpos(pencil.position()[0], pencil.position()[1] - 20)
+    pencil.rt(180)
+    pencil.pendown()
+    pencil.fd(90)
+    pencil.hideturtle()
+
+def draw_last_name(pencil:Turtle) -> None:
+    initial_position(pencil)
+    #N
+    pencil.left(90)
+    pencil.fd(100)
+    pencil.rt(150)
+    pencil.fd(115)
+    pencil.lt(150)
+    pencil.fd(100)
+    print(pencil.position())
+
+    #A
+    pencil.penup()
+    pencil.setpos(pencil.position()[0] + 30, pencil.position()[1])
+    pencil.pendown()
+    pencil.lt(180)
+    pencil.fd(100)
+    pencil.fd(-100)
+    pencil.lt(90)
+    pencil.fd(50)
+    pencil.rt(90)
+    pencil.fd(100)
+    pencil.fd(-40)
+    pencil.rt(90)
+    pencil.fd(50)
+
+    pencil.penup()
+    pencil.hideturtle()
+    pencil.setpos(pencil.position()[0] + 80, pencil.position()[1] - 20)
+    pencil.showturtle()
+    pencil.pendown()
+    #S
+    pencil.lt(90)
+    pencil.fd(20)
+    pencil.lt(90)
+    pencil.fd(50)
+    pencil.lt(90)
+    pencil.fd(50)
+    pencil.lt(90)
+    pencil.fd(50)
+    pencil.rt(90)
+    pencil.fd(50)
+    pencil.rt(90)
+    pencil.fd(50)
+    pencil.rt(90)
+    pencil.fd(20)
+
+
+def initial_position(pencil:Turtle) -> None:
+    pencil.penup()
+    pencil.setpos(-200, 0)
+    pencil.pendown()
 
 if __name__ == "__main__":
     main()
